@@ -1,10 +1,33 @@
+import { useState } from "react";
 import { Form, redirect } from "react-router";
 import Section from "../components/Section";
 import { FiPlusCircle } from "react-icons/fi";
 
+import { getLoanPreview } from "../utils/selectores";
 import { createLoan } from "../services/loans";
 
 function NewLoan() {
+  const [loan, setLoan] = useState({});
+
+  const preview = getLoanPreview(loan);
+
+  const totalReceivable = preview?.totalReceivable;
+  const installmentAmount = preview?.installmentAmount;
+
+  function handleInput(e) {
+    const form = new FormData(e.currentTarget);
+
+    setLoan({
+      name: form.get("name"),
+      loanAmount: Number(form.get("loanAmount")),
+      interestRate: Number(form.get("interestRate") / 100),
+      installments: Number(form.get("installments")),
+      amortization: form.get("amortization"),
+      dueDay: form.get("dueDay"),
+      loanDate: form.get("loanDate"),
+    });
+  }
+
   return (
     <Section>
       <div className="space-y-6">
@@ -13,6 +36,7 @@ function NewLoan() {
         <div className="grid gap-6 lg:grid-cols-2">
           <Form
             method="post"
+            onInput={handleInput}
             className="space-y-4 rounded-xl border border-border bg-surface p-5"
           >
             <div>
@@ -150,13 +174,13 @@ function NewLoan() {
             </button>
           </Form>
 
-          {/* <div className="rounded-xl border border-border bg-surface p-5 space-y-4">
+          <div className="rounded-xl border border-border bg-surface p-5 space-y-4">
             <h3 className="text-lg font-semibold text-accent">Prévia</h3>
 
-            <Preview label="Cliente" value={name || "-"} />
-            <Preview label="Total a receber" value={totalReceivable} />
-            <Preview label="Parcela" value={installment} />
-          </div> */}
+            <Preview label="Cliente" value={loan.name || "-"} />
+            <Preview label="Total a receber" value={totalReceivable || 0} />
+            <Preview label="Parcela" value={installmentAmount || 0} />
+          </div>
         </div>
       </div>
     </Section>

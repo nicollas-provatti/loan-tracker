@@ -6,6 +6,7 @@ import AllUpcomingPayments from "./pages/AllUpcomingPayments";
 import PaymentsHistory from "./pages/PaymentsHistory";
 import Loans from "./pages/Loans";
 import LoanDetails from "./pages/LoanDetails";
+import EditLoan, { editLoanAction } from "./pages/EditLoan";
 import NewLoan from "./pages/NewLoan";
 import NewPayment from "./pages/NewPayment";
 import Simulator from "./pages/Simulator";
@@ -16,7 +17,8 @@ import { appLoader } from "./pages/AppLayout";
 import { registerAction } from "./pages/Register";
 import { loginAction } from "./pages/Login";
 import { newLoanAction } from "./pages/NewLoan";
-import { actionNewPayment } from "./pages/NewPayment";
+import { newPaymentLoader } from "./pages/NewPayment";
+import { editLoanLoader } from "./pages/EditLoan";
 
 export const router = createBrowserRouter([
   {
@@ -51,9 +53,15 @@ export const router = createBrowserRouter([
         action: newLoanAction,
       },
       {
+        path: "loans/edit-loan/:loanId",
+        element: <EditLoan />,
+        loader: editLoanLoader,
+        action: editLoanAction,
+      },
+      {
         path: "loans/new-payment/:loanId",
         element: <NewPayment />,
-        action: actionNewPayment,
+        action: newPaymentLoader,
       },
       {
         path: "simulator",

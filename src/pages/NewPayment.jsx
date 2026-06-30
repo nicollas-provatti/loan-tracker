@@ -108,7 +108,7 @@ function Preview({ label, value }) {
   );
 }
 
-export async function actionNewPayment({ request, params }) {
+export async function newPaymentLoader({ request, params }) {
   const formData = await request.formData();
   const { loanId } = params;
 

@@ -162,9 +162,9 @@ export function getNextDueDateLabel(loan, payments) {
 
 export function getLoanDetails(loans, loanId, payments) {
   const loan = loans.find((loan) => loan.id === Number(loanId));
-  
+
   if (!loan) return;
-  
+
   const loanPayments = payments.filter((payment) => payment.loanId === loan.id);
 
   const progress = getLoanProgress(loan, loanPayments);
@@ -215,5 +215,20 @@ export function getLoanDetails(loans, loanId, payments) {
     profitReceived,
     remainingProfit,
     payments: loanPayments,
+  };
+}
+
+export function getLoanPreview(loan) {
+  const { loanAmount, interestRate, installments } = loan;
+
+  if (!loanAmount || !interestRate || !installments) return;
+
+  const installmentAmount =
+    loanAmount * interestRate + loanAmount / installments;
+  const totalReceivable = installmentAmount * installments;
+
+  return {
+    installmentAmount,
+    totalReceivable,
   };
 }

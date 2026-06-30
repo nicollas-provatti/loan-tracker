@@ -1,6 +1,4 @@
 import { Outlet, useLoaderData, Navigate, redirect } from "react-router";
-import LoansProvider from "../context/loans/loans-provider";
-import PaymentsProvider from "../context/payments/payments-provider";
 
 import { getCurrentUser } from "../services/auth";
 import { getLoans } from "../services/loans";
@@ -16,15 +14,13 @@ function AppLayout() {
   }
 
   return (
-    <LoansProvider>
-      <PaymentsProvider>
-        <Header />
-        <main className="min-h-[calc(100vh-100px)] p-5 bg-background">
-          <Outlet />
-        </main>
-        <Footer />
-      </PaymentsProvider>
-    </LoansProvider>
+    <>
+      <Header />
+      <main className="min-h-[calc(100vh-100px)] p-5 bg-background">
+        <Outlet />
+      </main>
+      <Footer />
+    </>
   );
 }
 

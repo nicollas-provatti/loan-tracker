@@ -40,7 +40,8 @@ function LoanActions({ loanId }) {
             Registrar Pagamento
           </Link>
 
-          <button
+          <Link
+            to={`/loans/edit-loan/${loanId}`}
             className="
               flex
               items-center
@@ -69,7 +70,7 @@ function LoanActions({ loanId }) {
           >
             <FiEdit size={18} />
             Editar Empréstimo
-          </button>
+          </Link>
         </div>
       </div>
     </div>
