@@ -57,6 +57,7 @@ function NewLoan() {
                 type="number"
                 name="loanAmount"
                 placeholder="Ex: 1000"
+                step="any"
                 className="w-full rounded-lg border border-border bg-surface p-3 text-text outline-none focus:border-primary"
               />
             </div>

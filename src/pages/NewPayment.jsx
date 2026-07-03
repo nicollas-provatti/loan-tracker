@@ -3,8 +3,24 @@ import { FiCheckCircle } from "react-icons/fi";
 import { formatDate } from "../utils/formatDate";
 import Section from "../components/Section";
 import { createPayment } from "../services/payments";
+import { useState } from "react";
 
 function NewPayment() {
+  const [payment, setPayment] = useState({});
+
+  const amountPaid = payment?.amountPaid;
+  const paymentDate = payment?.paymentDate;
+  const notes = payment?.notes;
+
+  function handleInput(e) {
+    const form = new FormData(e.currentTarget);
+
+    setPayment({
+      amountPaid: Number(form.get("amountPaid")),
+      paymentDate: form.get("paymentDate"),
+      notes: form.get("notes"),
+    });
+  }
   return (
     <Section>
       <div className="space-y-6">
@@ -12,6 +28,7 @@ function NewPayment() {
 
         <div className="grid gap-6 lg:grid-cols-2">
           <Form
+            onInput={handleInput}
             method="post"
             className="space-y-4 rounded-xl border border-border bg-surface p-5"
           >
@@ -81,15 +98,15 @@ function NewPayment() {
             </button>
           </Form>
 
-          {/* <div className="rounded-xl border border-border bg-surface p-5 space-y-4">
+          <div className="rounded-xl border border-border bg-surface p-5 space-y-4">
             <h3 className="text-lg font-semibold text-accent">
               Prévia do Pagamento
             </h3>
 
-            <Preview label="Valor" value={safeAmount} />
-            <Preview label="Data" value={formatDate(date) || "-"} />
-            <Preview label="Observação" value={note || "-"} />
-          </div> */}
+            <Preview label="Valor" value={amountPaid || 0} />
+            <Preview label="Data" value={paymentDate ? formatDate(`${paymentDate}T00:00`) : "-"} />
+            <Preview label="Observação" value={notes ||"-"} />
+          </div>
         </div>
       </div>
     </Section>

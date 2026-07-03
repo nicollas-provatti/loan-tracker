@@ -82,7 +82,8 @@ function EditLoan() {
               <input
                 type="number"
                 name="interestRate"
-                defaultValue={interestRate * 100}
+                defaultValue={(interestRate * 100).toFixed(2)}
+                step="any"
                 placeholder="Ex: 5"
                 className="w-full rounded-lg border border-border bg-surface p-3 text-text outline-none focus:border-primary"
               />
