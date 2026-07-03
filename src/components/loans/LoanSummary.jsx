@@ -78,7 +78,7 @@ function LoanSummary({ loan }) {
       <div className="grid gap-4 sm:grid-cols-3">
         <InfoCard
           label="Juros"
-          value={`${(interestRate * 100).toFixed(0)}% a.m.`}
+          value={`${(interestRate * 100).toFixed(2)}% a.m.`}
         />
 
         <InfoCard label="Parcelas" value={installments} />
