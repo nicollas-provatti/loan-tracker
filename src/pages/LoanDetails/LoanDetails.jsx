@@ -1,13 +1,13 @@
 import { useParams, useRouteLoaderData } from "react-router";
 
-import { getLoanDetails } from "../utils/selectores";
+import { getLoanDetails } from "../../utils/selectores";
 
-import Section from "../components/Section";
-import LoanSummary from "../components/loans/LoanSummary";
-import LoanProgress from "../components/loans/LoanProgress";
-import PaymentHistory from "../components/loans/PaymentHistory";
-import FinancialInfo from "../components/loans/FinancialInfo";
-import LoanActions from "../components/loans/LoanActions";
+import Section from "../../components/shared/Section";
+import LoanSummary from "../../components/loans/LoanSummary";
+import LoanProgress from "../../components/loans/LoanProgress";
+import PaymentHistory from "../../components/loans/PaymentHistory";
+import FinancialInfo from "../../components/loans/FinancialInfo";
+import LoanActions from "../../components/loans/LoanActions";
 
 function LoanDetails() {
   const { loans, payments } = useRouteLoaderData("app");

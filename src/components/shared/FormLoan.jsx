@@ -1,8 +1,8 @@
 import { Form } from "react-router";
-import Section from "../components/Section";
+import Section from "./Section";
 import { FiPlusCircle } from "react-icons/fi";
 import { useState } from "react";
-import { getLoanPreview } from "../utils/selectores";
+import { getLoanPreview } from "../../utils/selectores";
 
 function FormLoan({ editMode = false, loan }) {
   const [formData, setFormData] = useState(loan || {});

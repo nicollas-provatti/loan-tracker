@@ -1,9 +1,9 @@
 import { useRouteLoaderData } from "react-router";
-import Section from "../components/Section";
-import LoansHeader from "../components/loans/LoansHeader";
-import LoanSearch from "../components/loans/LoanSearch";
-import LoanFilters from "../components/loans/LoanFilters";
-import LoanList from "../components/loans/LoanList";
+import Section from "../../components/shared/Section";
+import LoansHeader from "../../components/loans/LoansHeader";
+import LoanSearch from "../../components/loans/LoanSearch";
+import LoanFilters from "../../components/loans/LoanFilters";
+import LoanList from "../../components/loans/LoanList";
 
 function Loans() {
   const { loans, payments } = useRouteLoaderData("app");

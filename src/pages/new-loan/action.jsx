@@ -1,10 +1,5 @@
 import { redirect } from "react-router";
-import FormLoan from "../components/FormLoan";
-import { createLoan } from "../services/loans";
-
-function NewLoan() {
-  return <FormLoan />;
-}
+import { createLoan } from "../../services/loans";
 
 export async function newLoanAction({ request }) {
   const formData = await request.formData();
@@ -35,5 +30,3 @@ export async function newLoanAction({ request }) {
 
   return redirect("/loans");
 }
-
-export default NewLoan;

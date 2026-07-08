@@ -1,24 +1,25 @@
 import { createBrowserRouter } from "react-router";
 
-import AppLayout from "./pages/AppLayout";
-import Dashboard from "./pages/Dashboard";
-import AllUpcomingPayments from "./pages/AllUpcomingPayments";
-import PaymentsHistory from "./pages/PaymentsHistory";
-import Loans from "./pages/Loans";
-import LoanDetails from "./pages/LoanDetails";
-import EditLoan, { editLoanAction } from "./pages/EditLoan";
-import NewLoan from "./pages/NewLoan";
-import NewPayment from "./pages/NewPayment";
-import Simulator from "./pages/Simulator";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import AppLayout from "./pages/app-layout/AppLayout";
+import Dashboard from "./pages/dashboard/Dashboard";
+import AllUpcomingPayments from "./pages/all-upcoming-payments/AllUpcomingPayments";
+import PaymentsHistory from "./pages/payments-history/PaymentsHistory";
+import Loans from "./pages/loans/Loans";
+import LoanDetails from "./pages/loan-details/LoanDetails";
+import EditLoan from "./pages/edit-loan/EditLoan";
+import NewLoan from "./pages/new-loan/NewLoan";
+import NewPayment from "./pages/new-payment/NewPayment";
+import Simulator from "./pages/simulator/Simulator";
+import Login from  "./pages/login/Login";
+import Register from "./pages/register/Register";
 
-import { appLoader } from "./pages/AppLayout";
-import { registerAction } from "./pages/Register";
-import { loginAction } from "./pages/Login";
-import { newLoanAction } from "./pages/NewLoan";
-import { newPaymentLoader } from "./pages/NewPayment";
-import { editLoanLoader } from "./pages/EditLoan";
+import { appLoader } from "./pages/app-layout/loader";
+import { registerAction } from "./pages/register/action";
+import { loginAction } from "./pages/login/action";
+import { newLoanAction } from "./pages/new-loan/action";
+import { newPaymentLoader } from "./pages/new-payment/loader";
+import { editLoanLoader } from "./pages/edit-loan/loader";
+import { editLoanAction } from "./pages/edit-loan/action";
 
 export const router = createBrowserRouter([
   {

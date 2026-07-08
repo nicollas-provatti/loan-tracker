@@ -1,18 +1,5 @@
-import { redirect, useLoaderData } from "react-router";
-import FormLoan from "../components/FormLoan";
-import { getLoan, updateLoan } from "../services/loans";
-
-function EditLoan() {
-  const loan = useLoaderData();
-
-  return <FormLoan editMode={true} loan={loan} />;
-}
-
-export async function editLoanLoader({ params }) {
-  const loan = await getLoan(params.loanId);
-
-  return loan;
-}
+import { redirect } from "react-router";
+import { updateLoan } from "../../services/loans";
 
 export async function editLoanAction({ request, params }) {
   const formData = await request.formData();
@@ -44,5 +31,3 @@ export async function editLoanAction({ request, params }) {
 
   return redirect("/loans");
 }
-
-export default EditLoan;

@@ -1,6 +1,5 @@
-import { Link, Form, redirect } from "react-router";
+import { Link, Form } from "react-router";
 import { FiUser, FiLock, FiTrendingUp } from "react-icons/fi";
-import { signUp } from "../services/auth";
 
 function Register() {
   return (
@@ -101,14 +100,4 @@ function Register() {
   );
 }
 
-export async function registerAction({ request }) {
-  const formData = await request.formData();
-
-  const email = formData.get("email");
-  const password = formData.get("password");
-
-  await signUp(email, password);
-
-  return redirect("/login");
-}
 export default Register;

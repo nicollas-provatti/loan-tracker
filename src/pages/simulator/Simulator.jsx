@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Section from "../components/Section";
+import Section from "../../components/shared/Section";
 import { FaCalculator } from "react-icons/fa";
 import { FiPlay } from "react-icons/fi";
 

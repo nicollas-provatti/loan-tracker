@@ -1,10 +1,10 @@
 import { useRouteLoaderData } from "react-router";
 
-import { formatRelativeDate } from "../utils/formatDate";
+import { formatRelativeDate } from "../../utils/formatDate";
 
 import { FiDollarSign } from "react-icons/fi";
-import PaymentCard from "../components/dashboard/PaymentCard";
-import Section from "../components/Section";
+import PaymentCard from "../../components/dashboard/PaymentCard";
+import Section from "../../components/shared/Section";
 
 function PaymentsHistory() {
   const { loans, payments } = useRouteLoaderData("app");

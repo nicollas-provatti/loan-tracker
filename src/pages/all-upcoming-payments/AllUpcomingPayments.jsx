@@ -1,11 +1,11 @@
 import { useRouteLoaderData } from "react-router";
 
-import { getUpcomingPayments } from "../utils/selectores";
+import { getUpcomingPayments } from "../../utils/selectores";
 
 import { FiCalendar } from "react-icons/fi";
 
-import Section from "../components/Section";
-import UpcomingPaymentsCard from "../components/dashboard/UpcomingPaymentsCard";
+import Section from "../../components/shared/Section";
+import UpcomingPaymentsCard from "../../components/dashboard/UpcomingPaymentsCard";
 
 function AllUpcomingPayments() {
   const { loans, payments } = useRouteLoaderData("app");

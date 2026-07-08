@@ -1,13 +1,11 @@
-import { Link, Form, redirect } from "react-router";
+import { Link, Form } from "react-router";
 
 import { FiUser, FiLock, FiTrendingUp } from "react-icons/fi";
-import { signIn } from "../services/auth";
 
 function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-md rounded-xl border border-border bg-surface p-6 shadow-sm space-y-6">
-
         <div className="text-center space-y-2">
           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white">
             <FiTrendingUp size={22} />
@@ -76,17 +74,6 @@ function Login() {
       </div>
     </div>
   );
-}
-
-export async function loginAction({ request }) {
-  const formData = await request.formData();
-
-  const email = formData.get("email");
-  const password = formData.get("password");
-
-  await signIn(email, password);
-
-  return redirect("/");
 }
 
 export default Login;
