@@ -32,11 +32,9 @@ export function formatRelativeDate(dateString) {
 }
 
 export function formatDate(date) {
-  const d = new Date(date);
+  if (!date) return "";
 
-  return d.toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
+  const [year, month, day] = date.split("-");
+
+  return `${day}/${month}/${year}`;
 }
