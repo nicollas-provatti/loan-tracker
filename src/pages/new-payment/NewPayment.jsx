@@ -104,7 +104,7 @@ function NewPayment() {
             </h3>
 
             <Preview label="Valor" value={amountPaid || 0} />
-            <Preview label="Data" value={paymentDate ? formatDate(`${paymentDate}T00:00`) : "-"} />
+            <Preview label="Data" value={paymentDate ? formatDate(paymentDate) : "-"} />
             <Preview label="Observação" value={notes ||"-"} />
           </div>
         </div>
